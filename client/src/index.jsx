@@ -1,6 +1,9 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import 'bootstrap';
+
 import {BrowserRouter as Router, Route, Link, Switch, History} from "react-router-dom";
 
 import Welcome from './components/Welcome.jsx';
@@ -8,12 +11,6 @@ import Search from './components/Search.jsx';
 import Login from './components/Login.jsx';
 import Signup from './components/Signup.jsx';
 import Favorites from './components/Favorites.jsx';
-
-import {cyan500} from 'material-ui/styles/colors';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import AppBar from 'material-ui/AppBar';
-
 
 class App extends React.Component {
 	constructor(props){
@@ -31,7 +28,7 @@ class App extends React.Component {
 
 	render(){
 		return (
-			<div>
+			<div  className="container">
 			<Login />
 			</div>
 		)
