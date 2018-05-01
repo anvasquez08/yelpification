@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -22,10 +23,10 @@ class Welcome extends React.Component {
   			<button>Search</button>
   	 		<input type="text" 
   	 			   value={this.state.zipcode}
-  	 			   onChange={this.handleStateZipcode }/>
+  	 			   onChange={this.handleStateZipcode}/>
   		</div>
   	)
   }
 }
 
-export default Welcome;
+export default withRouter(Welcome);
