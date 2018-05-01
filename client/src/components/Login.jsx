@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button, Form, FormGroup, Input, Label, Badge} from 'reactstrap';
 class Login extends React.Component {
   constructor(props) {
 		super(props)
@@ -21,17 +21,21 @@ class Login extends React.Component {
 
 	render(){
 		return (
-			<div>
-				<form> 
-					Username
-					<input type="text" name="username" value={this.state.username} onChange={this.onChange}/>
+			<div className="row" className="center-block" >
+			<h1>Login <Badge color="secondary">New</Badge></h1>
+				<Form inline> 
+				    <FormGroup>
+								Your Username
+								<Label for="exampleEmail" hidden>Email</Label>
+								<Input type="text" name="username" value={this.state.username} placeholder="Email" onChange={this.onChange}/>
+						</FormGroup>
 					Password
-					<input type="text" name="username" value={this.state.password} onChange={this.onChange}/>
+					<Input type="text" name="username" value={this.state.password} placeholder="Password" onChange={this.onChange}/>
 					<button>Login</button>
 					<br></br>
 					Not a member? 
-					<button>Sign-Up</button>
-				</form>
+					<Button color="danger">Sign-Up</Button>
+				</Form>
 			</div>
 		)
 	}
