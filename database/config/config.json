@@ -5,6 +5,9 @@
     "database": "app",
     "host": "127.0.0.1",
     "port": 5432,
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+        "timestamps": false
+    }
   }
 }

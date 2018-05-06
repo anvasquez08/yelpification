@@ -1,23 +1,19 @@
-// Server
-const express = require('express');
-const app = express();
-app.use(express.static(__dirname + '/../client/dist'));
-
-// Middleware
+const express    = require('express');
 const bodyParser = require('body-parser');
-const logger = require('morgan');
+const logger     = require('morgan');
+const app        = express();
+const router     = require('./controllers/index.js');
 
+app.use(express.static(__dirname + '/../client/dist'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
+app.use('/',router);
 
-// Postgres Database
-// const db = require('../database/index.js');
-
-// Router 
-// const router = require('./routes.js');
-// app.use('/',router);
-
-// Listening and Exporting App
 app.listen(4000, () => console.log('Listening to port 4000')); 
 module.exports.app = app;
+
+
+/*
+- router defined
+*/
