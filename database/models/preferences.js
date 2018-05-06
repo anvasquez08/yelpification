@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     alias: {
     	type: DataTypes.STRING,
     	allowNull: true,
-    },
+    }
   });
 
   Preferences.associate = (models) => {

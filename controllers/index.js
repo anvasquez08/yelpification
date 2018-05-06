@@ -1,7 +1,7 @@
 const user = require('./user.js');
 const router = require('express').Router();
 
-router.get('/db', user.db.get);
-router.post('/search-places', user.searchPlaces.post);
+router.post('/signup', user.signup.post);
+router.post('/login', user.login.post);
 
 module.exports = router;
