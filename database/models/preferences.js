@@ -25,13 +25,3 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Preferences;
 };
-
-/*
-  Preferences.associate = (models) => {
-    Preferences.belongsTo(models.User, {
-      foreignKey: 'userId', 
-      onDelete: 'CASCADE',
-    });
-  };
-
-*/

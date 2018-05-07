@@ -1,5 +1,4 @@
 const sequelize = require(`../database/models/index.js`).sequelize;
-const Sequelize = require(`../database/models/index.js`).Sequelize;
 const Preferences = sequelize.import(`../database/models/preferences.js`);
 const User = sequelize.import(`../database/models/user.js`);
 
