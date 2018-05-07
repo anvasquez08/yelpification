@@ -17,10 +17,21 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Preferences.associate = (models) => {
-    Preferences.belongsTo(models.User, {
-    	foreignKey: 'userId', 
-    	onDelete: 'CASCADE',
+    Preferences.belongsTo(models.User,{
+      foreignKey: 'userId', 
+      targetKey: 'id',
+      onDelete: 'CASCADE',
     });
   };
   return Preferences;
 };
+
+/*
+  Preferences.associate = (models) => {
+    Preferences.belongsTo(models.User, {
+      foreignKey: 'userId', 
+      onDelete: 'CASCADE',
+    });
+  };
+
+*/
