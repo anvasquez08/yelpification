@@ -1,30 +1,24 @@
 const sequelize = require(`../database/models/index.js`).sequelize;
 const Preferences = sequelize.import(`../database/models/preferences.js`);
 const User = sequelize.import(`../database/models/user.js`);
-const {Yelp_API, Client_ID} = require('../config.js')
+const {Headers} = require('../config.js')
 const axios = require('axios');
 
-// axios.defaults.headers.common['Authorization'] = `Bearer ${Yelp_API}`; // need to change so not global
-
-
 const yelpRoutes= {
-  searchPlaces: {
+  searchPlaces: {	
     post: function(req, res) {
-      const {term, location} = req.body
-      // /businesses/{id}
-        //categories, categories[x].alias, hours[x].is_open_now, image_url, location,name, photos, price, rating,url
-        // console.log(Yelp_API)
-        res.send('hit')
-        axios.get(`https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}`)
+      const {location, radius, price} = req.body; 
+      axios.get(`https://api.yelp.com/v3/businesses/search?&location=${location}&price=${1, 2}&open_now=${true}&limit=${10}`, Headers)
         .then((response) => {
-          console.log(response.data.businesses)
           res.send(response.data.businesses)
         })
-        .catch((err) => {
-          console.log(err)
-        })
+        .catch((err) => console.log(err))
     }
   }
 }
 
   module.exports = yelpRoutes
+
+  /*
+  - missing term and radius
+  */

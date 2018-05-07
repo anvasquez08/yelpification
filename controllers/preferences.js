@@ -49,7 +49,6 @@ const preferencesRoutes = {
 		}}
 	}
 
-
 module.exports = preferencesRoutes
 
 /* Reason for double add query:
