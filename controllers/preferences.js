@@ -32,8 +32,24 @@ const preferencesRoutes = {
 				.catch(() => res.status(406))
 			})
 		}
+	}, 
+	delete: {
+		delete:(req, res) => {
+		const {username, yelpID} = req.params;
+		Preferences.find({
+			include: [{
+				model: User, 
+				where: {username: username}
+			}], 
+			where: {yelpID: yelpID}
+		})
+		.then(entry => entry.destroy())	
+			.then(() => res.send('deleted'))
+			.catch(() => res.status(410))
+		.catch(err => res.send('err: data does not exist'))
+		}}
 	}
-}
+
 
 module.exports = preferencesRoutes
 
