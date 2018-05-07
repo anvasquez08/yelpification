@@ -3,8 +3,9 @@ const user = require('./user.js');
 const preferences = require('./preferences.js');
 
 
-router.post('/signup', user.signup.post);
-router.post('/login', user.login.post);
-router.get('/preferences/:username', preferences.search.get);
+router.post('/signup', user.signup.post);					   //1
+router.post('/login', user.login.post);						   //2
+router.get('/preferences/:username', preferences.search.get);  //3
+router.post('/preferences/:username', preferences.add.post); //4
 
 module.exports = router;
