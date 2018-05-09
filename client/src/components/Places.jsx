@@ -15,23 +15,23 @@ class Places extends React.Component{
 		super(props)
 		this.state = {
 			placed: [], 
-			searchword: '',
-			tempzipcode: '10022' // will need to change 
+			searchword: ''
 		}
 		this.onChange = this.onChange.bind(this);
 		this.autoComplete = this.autoComplete.bind(this);
 	}
 
 	onChange(event) {
-		this.setState({[event.target.name]: event.target.value})
-		// axios.post(`/autocomplete/${this.state.tempzipcode}/${this.state.searchword}`)
-		// .then(response => console.log(response))
-		// .catch(err => console.log(err))
+		this.setState({[event.target.name]: event.target.value}, () => this.autocomplete())
 	}
 
 	autoComplete() {
-		console.log(this.state.searchword, this.state.tempzipcode)
-		axios.post(`/autocomplete/${this.state.tempzipcode}/${this.state.searchword}`)
+		const body = {
+			lat: this.props.lat, 
+			lng: this.props.lng, 
+			text: this.state.searchword
+		}
+		axios.post(`/autocomplete/`, body)
 		.then(response => console.log(response))
 		.catch(err => console.log(err))
 	}
@@ -46,7 +46,7 @@ class Places extends React.Component{
 				  			<CardBody>
 				  				<CardTitle>Places to Not Eat</CardTitle>
 				  				<Input type="text" name="searchword" value={this.state.searchword} onChange={this.onChange} placeholder="Restaurant"/>
-				  				<Button className="Button" onClick={() => this.autoComplete()}>Search</Button>    									
+				  				<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
 				  				<Button className="Button" onClick={() => console.log(name)}>Done..Let's move on!</Button>
 				  			</CardBody>
 				  		</Card>
