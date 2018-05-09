@@ -1,27 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {
+	Container, Row, Col,
+	Card, CardBody,
+  CardTitle, 
+  Button, 
+	Input
+} from 'reactstrap';
+
 
 class Places extends React.Component{
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			placed: [], 
+			searchword: ''
+		}
+		this.onChange = this.onChange.bind(this);
+	}
 
-render(){
-	return (
-				<div className="row" className="center-block" >
-			<h1>Zipcode <Badge color="secondary"></Badge></h1>
-				<Form inline> 
-				    <FormGroup>
-								Your Username
-								<Label for="exampleEmail" hidden>Email</Label>
-								<Input type="text" name="username" value={this.state.username} placeholder="Email" onChange={this.onChange}/>
-						</FormGroup>
-					Password
-					<Input type="text" name="username" value={this.state.password} placeholder="Password" onChange={this.onChange}/>
-					<button>Login</button>
-					<br></br>
-					Not a member? 
-					<Button color="danger">Sign-Up</Button>
-				</Form>
-			</div>)
-}
+	onChange(event) {
+		const name = event.target.name
+		this.setState({[name]: event.target.value})
+	}
+
+
+	render() {
+		return (
+		<Container fluid>
+  	<br></br>
+	  	<Row>
+	  	<Col>
+	  		<Card className="Card" style={{}}>
+	  			<CardBody>
+	  				<CardTitle>Places to Not Eat</CardTitle>
+	  				<Input type="text" name="searchword" value={this.state.searchword} onChange={this.onChange} placeholder="Restaurant"/>
+	  				<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
+	  				<Button className="Button" onClick={() => console.log(name)}>Done..Let's move on!</Button>
+	  			</CardBody>
+	  		</Card>
+	  	</Col>
+	  	</Row>
+		</Container>
+		)
+	}
 }
 
 export default Places;

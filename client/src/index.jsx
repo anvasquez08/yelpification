@@ -30,7 +30,8 @@ class App extends React.Component {
 		return (
 			<div className="App">
 					<NavBar />
-					<Zipcode/>
+					<Zipcode />
+					<Places />
 			</div>
 		)
 	}
