@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import {
 	Container, Row, Col,
 	Card, CardBody,
@@ -14,13 +15,25 @@ class Places extends React.Component{
 		super(props)
 		this.state = {
 			placed: [], 
-			searchword: ''
+			searchword: '',
+			tempzipcode: '10022' // will need to change 
 		}
 		this.onChange = this.onChange.bind(this);
+		this.autoComplete = this.autoComplete.bind(this);
 	}
 
 	onChange(event) {
 		this.setState({[event.target.name]: event.target.value})
+		// axios.post(`/autocomplete/${this.state.tempzipcode}/${this.state.searchword}`)
+		// .then(response => console.log(response))
+		// .catch(err => console.log(err))
+	}
+
+	autoComplete() {
+		console.log(this.state.searchword, this.state.tempzipcode)
+		axios.post(`/autocomplete/${this.state.tempzipcode}/${this.state.searchword}`)
+		.then(response => console.log(response))
+		.catch(err => console.log(err))
 	}
 
 	render() {
@@ -33,7 +46,7 @@ class Places extends React.Component{
 				  			<CardBody>
 				  				<CardTitle>Places to Not Eat</CardTitle>
 				  				<Input type="text" name="searchword" value={this.state.searchword} onChange={this.onChange} placeholder="Restaurant"/>
-				  				<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
+				  				<Button className="Button" onClick={() => this.autoComplete()}>Search</Button>    									
 				  				<Button className="Button" onClick={() => console.log(name)}>Done..Let's move on!</Button>
 				  			</CardBody>
 				  		</Card>
