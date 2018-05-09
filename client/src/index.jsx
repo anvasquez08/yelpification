@@ -18,6 +18,7 @@ import Zipcode from './components/Zipcode.jsx';
 import Signup from './components/Signup.jsx';
 import Favorites from './components/Favorites.jsx';
 import NavBar from './components/NavBar.jsx';
+
 class App extends React.Component {
 
 	constructor(props) {

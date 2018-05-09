@@ -4,10 +4,23 @@ body {
 }
 
 .App {
-  text-align:center;
+  /*text-align:center;*/
 }
 
 .navbar-header {
   background-color: #2E2B34;
   color: #ECF0F1
+}
+
+.Card {
+  /*background-color: #A292A1;*/
+   text-align:center
+}
+
+/*.Card-clicked {
+  background-color: #A292A1;
+}*/
+
+.Button {
+  background-color: #F7F5F3;
 }
