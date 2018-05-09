@@ -24,14 +24,23 @@ class App extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			lat: '',
+			lng: '' 
+		}
+		this.handleLatLgn = this.handleLatLgn.bind(this)
+	}
+
+	handleLatLgn(targetLat, targetLng) {
+		this.setState({lat: targetLat, lng: targetLng})
 	}
 
 	render() {
 		return (
 			<div className="App">
 					<NavBar />
-					<Zipcode />
-					<Places />
+					<Zipcode handleLatLgn={this.handleLatLgn}/>
+					<Places lat={this.state.lat} lng={this.state.lng}/>
 			</div>
 		)
 	}
