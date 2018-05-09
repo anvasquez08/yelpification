@@ -1,16 +1,7 @@
 import React from 'react';
-import '../../dist/style.css'
-import { Collapse,
+import { 
   Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem  
+  NavbarBrand
 } from 'reactstrap';
 
 export default class NavBar extends React.Component {

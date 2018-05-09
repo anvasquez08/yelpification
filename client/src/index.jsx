@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import 'bootstrap';
+import '../dist/style.css'
 
 import {
 	BrowserRouter as Router, 
@@ -12,11 +13,11 @@ import {
 	History
 } from "react-router-dom";
 
-import Welcome from './components/Welcome.jsx';
-import Search from './components/Search.jsx';
 import Zipcode from './components/Zipcode.jsx';
-import Signup from './components/Signup.jsx';
-import Favorites from './components/Favorites.jsx';
+import Places from './components/Places.jsx';
+// import Signup from './components/Signup.jsx';
+// import Favorites from './components/Favorites.jsx';
+// import Welcome from './components/Welcome.jsx';
 import NavBar from './components/NavBar.jsx';
 
 class App extends React.Component {
