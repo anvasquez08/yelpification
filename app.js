@@ -4,7 +4,7 @@ const logger     = require('morgan');
 const app        = express();
 const router     = require('./controllers/index.js');
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(__dirname + '/client/dist'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
