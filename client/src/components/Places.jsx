@@ -20,28 +20,26 @@ class Places extends React.Component{
 	}
 
 	onChange(event) {
-		const name = event.target.name
-		this.setState({[name]: event.target.value})
+		this.setState({[event.target.name]: event.target.value})
 	}
-
 
 	render() {
 		return (
-		<Container fluid>
-  	<br></br>
-	  	<Row>
-	  	<Col>
-	  		<Card className="Card" style={{}}>
-	  			<CardBody>
-	  				<CardTitle>Places to Not Eat</CardTitle>
-	  				<Input type="text" name="searchword" value={this.state.searchword} onChange={this.onChange} placeholder="Restaurant"/>
-	  				<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
-	  				<Button className="Button" onClick={() => console.log(name)}>Done..Let's move on!</Button>
-	  			</CardBody>
-	  		</Card>
-	  	</Col>
-	  	</Row>
-		</Container>
+				<Container fluid>
+			  	<br></br>
+				  	<Row>
+				  	<Col sm="5">
+				  		<Card className="Card" style={{}}>
+				  			<CardBody>
+				  				<CardTitle>Places to Not Eat</CardTitle>
+				  				<Input type="text" name="searchword" value={this.state.searchword} onChange={this.onChange} placeholder="Restaurant"/>
+				  				<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
+				  				<Button className="Button" onClick={() => console.log(name)}>Done..Let's move on!</Button>
+				  			</CardBody>
+				  		</Card>
+				  	</Col>
+				  	</Row>
+				</Container>
 		)
 	}
 }

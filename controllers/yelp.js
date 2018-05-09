@@ -5,6 +5,16 @@ const {Headers} = require('../config.js')
 const axios = require('axios');
 
 const yelpRoutes= {
+  autocomplete: { 
+    post: function(req, res) {
+      const {location, term} = req.body; 
+      axios.get(`https://api.yelp.com/v3/autocomplete?location=${location}&term=${term}`, Headers)
+        .then((response) => {
+          res.send(response.data)
+        })
+        .catch((err) => console.log(err))
+    }
+  },
   searchPlaces: {	
     post: function(req, res) {
       const {location, radius, price} = req.body; 

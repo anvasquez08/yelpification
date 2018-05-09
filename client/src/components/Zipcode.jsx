@@ -25,7 +25,7 @@ class Zipcode extends React.Component {
 
 	handleClick() {
 		this.setState({
-			cardColor:  '#D8B6AF'
+			cardColor:  '#E1A6AC'
 		})
 	}
 
