@@ -1,17 +1,9 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import 'bootstrap';
 import '../dist/style.css'
-
-import {
-	BrowserRouter as Router, 
-	Route, 
-	Link, 
-	Switch, 
-	History
-} from "react-router-dom";
+import Autocomplete from 'react-autocomplete'
 
 import Zipcode from './components/Zipcode.jsx';
 import Places from './components/Places.jsx';
