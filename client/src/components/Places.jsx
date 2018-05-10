@@ -14,13 +14,13 @@ class Places extends React.Component{
 		super(props)
 		this.state = {
 			value: '',
-			autocompleteData: []
+			autocompleteData: [], 
+			isHighlighted: false
 		}
 
 		this.onChange = this.onChange.bind(this);
-		this.onSelect = this.onSelect.bind(this);
-		this.autoCompleteBody = this.autoCompleteBody.bind(this);
 		this.onStateChange = this.onStateChange.bind(this);
+	  this.autoCompleteBody = this.autoCompleteBody.bind(this);
 		this.autoComplete = this.autoComplete.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.getItemValue = this.getItemValue.bind(this);
@@ -29,10 +29,6 @@ class Places extends React.Component{
 	onChange(event) { 
 		this.setState({value: event.target.value}) 
 		this.autoComplete() 
-	}
-
-	onSelect(val) {
-		this.setState({value: val})
 	}
 
 	onStateChange(key, value) {
@@ -53,23 +49,23 @@ class Places extends React.Component{
 		.catch(err => console.log(err))
 	}
 
-	renderItem(item, isHighlighted) {
+	renderItem(item) {
 		return (
-        <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                {item.label}
+        <div key={item.id} style={{backgroundColor: this.state.isHighlighted ? '#eee' : 'transparent'}}>
+          {item.description}
         </div>   
-     ); 
+     )
 	}
-	 getItemValue(item){
-        return `${item.value} - ${item.label}`;
-    }
+	
+	getItemValue(item){
+    return item.description;
+  }
 
 	render() {
-		const {searchValue, autocompleteData} = this.state;
-
+		const {value, autocompleteData} = this.state;
 		return (
 				<Container fluid>
-				{console.log(this.state.autocompleteData)}
+					{console.log(this.state.autocompleteData)}
 			  	<br></br>
 				  	<Row>
 				  	<Col sm="5">
@@ -77,27 +73,18 @@ class Places extends React.Component{
 				  			<CardBody>
 				  				<CardTitle>Places</CardTitle>
 									<Autocomplete
-							   			items={autocompleteData}
-							        getItemValue={item => item.description}
-							        renderItem={(item, highlighted) =>
-							          <div
-							            key={item.id}
-							            style={{ backgroundColor: highlighted ? '#eee' : 'transparent'}}
-							          >
-							            {item.description}
-							          </div>
-							        }
-							        value={this.state.value}
-							        onChange={this.onChange}
-							        onSelect={val => this.onStateChange('value', val)}
-							      />
+							   		items={autocompleteData}
+							      getItemValue={this.getItemValue}
+							      renderItem={(item) => this.renderItem(item)}
+							      value={value}
+							      onChange={this.onChange}
+							      onSelect={val => this.onStateChange('value', val)}/>
 				  				<Button className="Button" onClick={() => console.log(name)}>Add To My Places</Button>    									
 				  				<Button className="Button" onClick={() => console.log(name)}>Let's move on</Button>
 				  			</CardBody>
 				  		</Card>
 				  	</Col>
-				  	</Row>
-				
+				  	</Row>			
 				</Container>
 		)
 	}
