@@ -19,7 +19,8 @@ class App extends React.Component {
 		this.state = {
 			fulladdress: '',
 			lat: '',
-			lng: '' 
+			lng: '', 
+			placesToSendToDB: []
 		}
 		this.handleLatLgn = this.handleLatLgn.bind(this)
 	}
