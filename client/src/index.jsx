@@ -8,9 +8,6 @@ import Autocomplete from 'react-autocomplete'
 import Zipcode from './components/Zipcode.jsx';
 import Places from './components/Places.jsx';
 import Results from './components/Results.jsx';
-
-// import Favorites from './components/Favorites.jsx';
-// import Welcome from './components/Welcome.jsx';
 import NavBar from './components/NavBar.jsx';
 
 class App extends React.Component {

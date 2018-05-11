@@ -64,6 +64,33 @@ class Places extends React.Component{
 	render() {
 		const {value, autocompleteData} = this.state;
 		return (
+			<div className="text">
+				<Col sm="5">
+				Search by Name 
+				<br></br>
+					<Autocomplete
+						items={autocompleteData}
+						getItemValue={this.getItemValue}
+						renderItem={(item) => this.renderItem(item)}
+						value={value}
+						onChange={this.onChange}
+						onSelect={val => this.onStateChange('value', val)}/>
+				  	<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
+				</Col>	
+			</div>	
+		)
+	}
+}
+
+export default Places;
+
+/*
+
+	old 
+    render() {
+		const {value, autocompleteData} = this.state;
+		return (
+
 				<Container fluid>
 					{console.log(this.state.autocompleteData)}
 			  	<br></br>
@@ -90,4 +117,4 @@ class Places extends React.Component{
 	}
 }
 
-export default Places;
+*/

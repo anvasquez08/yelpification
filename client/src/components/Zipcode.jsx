@@ -8,6 +8,7 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 
+
 class Zipcode extends React.Component {
 
   constructor(props) {
@@ -50,23 +51,41 @@ class Zipcode extends React.Component {
 
 	render() {
 		return (
-  			<Container fluid>
-  			 <br></br>
-  			  <Row>
-      		<Col sm="5">
-						<Card className="Card" style={{backgroundColor: this.state.cardColor}}>
-							<CardBody>
-								<CardTitle>Your Office Location</CardTitle>
-								<Input type="text" name="address" value={this.state.address} placeholder="Address" onChange={this.onChange}/>
+			<div className="jumbotron-fluid picture-header">
+				<div className="text">
+						<Col sm="5">
+								<div>Find Lunch Nearby</div>
+								<Input type="text" name="address" value={this.state.address} placeholder="Office Address" onChange={this.onChange}/>
 								<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
 								<Button className="Button" onClick={() => this.handleClick()}>Next</Button>
-							</CardBody>
-						</Card>
-				  </Col>
-   			  </Row>
-    		</Container>
+						</Col>
+				</div>
+		    </div>
 		)
 	}
 }
 
 export default Zipcode;
+
+// Old working  // give space: className="imageContainer"
+//   			<Container fluid >
+//   		     <img className="img-cover" src={require('../../dist/images/istock.jpg')} alt="logo"/>
+//   			 <br></br>
+//   			  <Row>
+//       		 <Col sm="5">
+// 						<Card className="Card" style={{backgroundColor: this.state.cardColor}}>
+// 							<CardBody>
+// 								<CardTitle>Your Office Location</CardTitle>
+// 								<Input type="text" name="address" value={this.state.address} placeholder="Address" onChange={this.onChange}/>
+// 								<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
+// 								<Button className="Button" onClick={() => this.handleClick()}>Next</Button>
+// 							</CardBody>
+// 						</Card>
+// 				  </Col>
+//    			  </Row>
+//     		</Container>
+
+
+
+
+

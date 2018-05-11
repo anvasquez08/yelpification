@@ -1,6 +1,7 @@
+
 body {
   margin: 0px;
-  background-color: #ECF0F1;
+  background-color: #ffffff;
 }
 
 .App {
@@ -8,7 +9,7 @@ body {
 }
 
 .navbar-header {
-  background-color: #2E2B34;
+  background-color: #d9534f;
   color: #ECF0F1
 }
 
@@ -27,3 +28,31 @@ body {
     max-height: 50px;
     max-width: 300px;
 }
+
+
+/*saving for reference */
+.img-cover {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  background-size: cover;
+  position: relative;
+  animation: fadein 2
+
+  /*overflow: hidden;*/
+  /*margin-top: 10px;*/
+  /*max-height: 300px;*/
+  /*display: table;*/
+  /*background position: center center; */
+  /*padding: 180px 7.5%;*/
+}
+
+.text {
+   height: auto;
+   margin-bottom: 10px;
+   position: relative;
+   /*background-size: cover;*/
+   /*width: 100%;*/
+   /*animation: fadein 2;*/
+}
+

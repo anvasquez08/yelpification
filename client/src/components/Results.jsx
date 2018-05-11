@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Col, Card, CardBody, CardTitle, 
+import {Container,  Col, Card, CardBody, CardTitle, 
 	CardSubtitle, CardText, CardGroup, CardImg, Button } from 'reactstrap';
 
 class Results extends React.Component{
@@ -12,13 +12,15 @@ class Results extends React.Component{
 	render() {
 		return (
 			<CardGroup>
+			<br></br>
+			<br></br>
 			  {
 			    this.props.searchResults && 
 			    this.props.searchResults.map((place, idx) => {
 			    	return (
 						 <Col sm="3"key={idx}>
 						    <Card style={{width: "18rem"}}>
-						  		<CardImg top width="100%" src={place.image_url} className="img-responsive"/>
+						  	  <CardImg top width="100%" src={place.image_url} className="img-responsive"/>
 						      <CardBody style={{height: "10rem"}}>
 						          <CardTitle><a href={place.url}>{place.name}</a></CardTitle>
 						          <CardSubtitle>Yelp Rating: {place.rating}</CardSubtitle>
@@ -26,13 +28,14 @@ class Results extends React.Component{
 						          <br></br>
 						          {place.location.city}, {place.location.zip_code}</CardText>
 						          <Button>Button</Button>
-									</CardBody>
+							   </CardBody>
 						    </Card>
 						</Col>
 			    	)
 			    })
 			  }
 		</CardGroup>
+
 		)
 	}
 }
