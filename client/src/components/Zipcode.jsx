@@ -1,13 +1,6 @@
-import React, { Component } from 'react';
-import {
-	Container, Row, Col,
-	Card, CardBody,
-	 CardTitle, 
-	  Button, 
-	Input
-} from 'reactstrap';
+import React from 'react';
+import { Col, Button, Input } from 'reactstrap';
 import axios from 'axios';
-
 
 class Zipcode extends React.Component {
 
@@ -15,8 +8,7 @@ class Zipcode extends React.Component {
 		super(props)
 		this.state = {
 			address: '',
-			zipcode: '', 
-			cardColor: '#A292A1'
+			zipcode: ''
 		}
 		this.onChange = this.onChange.bind(this);
 		this.handleClick = this.handleClick.bind(this);
@@ -31,7 +23,6 @@ class Zipcode extends React.Component {
 	handleClick() {
 		this.fetchLatLong()
 		this.setState({
-			cardColor: '#E1A6AC', 
 			address: '',
 			zipcode: ''
 		})
