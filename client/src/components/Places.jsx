@@ -20,7 +20,7 @@ class Places extends React.Component{
 
 		this.onChange = this.onChange.bind(this);
 		this.onStateChange = this.onStateChange.bind(this);
-	  this.autoCompleteBody = this.autoCompleteBody.bind(this);
+	  	this.autoCompleteBody = this.autoCompleteBody.bind(this);
 		this.autoComplete = this.autoComplete.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.getItemValue = this.getItemValue.bind(this);

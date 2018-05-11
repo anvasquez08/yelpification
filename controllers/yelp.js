@@ -8,7 +8,7 @@ const yelpRoutes= {
   autocomplete: { 
     post: function(req, res) {
       const {lat, lng, text} = req.body; 
-      axios.get(`https://api.yelp.com/v3/autocomplete?text=${text}&latitude=${lat}&longitude=${lng}`, Headers)
+      axios.get(`https://api.yelp.com/v3/autocomplete?&text=${text}&latitude=${lat}&longitude=${lng}`, Headers)
         .then((response) => {
           res.send(response.data)
         })
@@ -17,10 +17,10 @@ const yelpRoutes= {
   },
   searchPlaces: {	
     post: function(req, res) {
-      const {location, radius, price} = req.body; 
-      axios.get(`https://api.yelp.com/v3/businesses/search?&location=${location}&price=${1, 2}&open_now=${true}&limit=${10}`, Headers)
+      const {lat, lng} = req.body; 
+      axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${10}`, Headers)
         .then((response) => {
-          res.send(response.data.businesses)
+          res.send(response.data)
         })
         .catch((err) => console.log(err))
     }

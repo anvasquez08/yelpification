@@ -9,8 +9,32 @@ const googleMapsClient = require('@google/maps').createClient({
 const googleRoutes= {
   geocode: { 
     post: function(req, res) { 
-        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?${googleAddressFormatter(req.body.address, req.body.zipcode)}&key=${Google_API}`)
-        .then(response => res.send(googleGeocodeExtraction(response)))
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?${googleAddressFormatter(req.body.address, req.body.zipcode)}&key=${Google_API}`)
+        .then(response => {
+        	let result = googleGeocodeExtraction(response)
+        	let {coordinates} = result
+        
+        	googleMapsClient.placesNearby({
+				      language: 'en',
+				      location: [coordinates.lat, coordinates.lng],
+				      radius: 3000,
+				      minprice: 1,
+				      maxprice: 4,
+				      opennow: true,
+				      type: 'restaurant'
+				    })
+				    .asPromise()
+				    .then((response) => {
+				    	console.log('this is the places ', response.json.results[0].photos)
+						   
+						   
+
+				    })
+				    .catch(err => console.log(err));
+
+
+        	res.send(googleGeocodeExtraction(response))
+        })
         .catch(err => console.log(err))
     }
   }, 
@@ -40,7 +64,19 @@ const googleRoutes= {
 	  	}) 
 	  	.catch(err => res.send(err))
 	  }
-  }	
+  }, 
+  test: {
+  	get: (req, res) => {
+  		googleMapsClient.placesPhoto({
+				photoreference: 'CmRaAAAAB5rSH4JS9y64oH4Ik9Z3ysLkd6QQPjS7u0Q024wwxgEw0AYobxu29GmTsmXAkyGB5OBDG_KUgFeRTtQR4_2VQD4yd-Ax2tRMHHULnyabgjNURQuh90SmoAcXgwikSv6BEhDEuaygRnv3RQwvZl7Ks-qQGhQxzXUZseHwh8SFpOrT0XslpucWrw',
+				maxwidth: 100,
+				maxheight: 100
+			})
+			.asPromise()
+			.then(response => console.log('this is the photo', response))
+			.catch(err => console.log(err))
+  	}
+  }
 }
 
 
