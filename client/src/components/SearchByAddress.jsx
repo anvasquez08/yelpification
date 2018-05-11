@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Button, Input } from 'reactstrap';
 import axios from 'axios';
 
-class Zipcode extends React.Component {
+class SearchByAddress extends React.Component {
 
   constructor(props) {
 		super(props)
@@ -48,7 +48,7 @@ class Zipcode extends React.Component {
 								<div>Find Lunch Nearby</div>
 								<Input type="text" name="address" value={this.state.address} placeholder="Office Address" onChange={this.onChange}/>
 								<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
-								<Button className="Button" onClick={() => this.handleClick()}>Next</Button>
+								<Button className="Button" onClick={() => this.handleClick()}>Find a Bite</Button>
 						</Col>
 				</div>
 		    </div>
@@ -56,26 +56,7 @@ class Zipcode extends React.Component {
 	}
 }
 
-export default Zipcode;
-
-// Old working  // give space: className="imageContainer"
-//   			<Container fluid >
-//   		     <img className="img-cover" src={require('../../dist/images/istock.jpg')} alt="logo"/>
-//   			 <br></br>
-//   			  <Row>
-//       		 <Col sm="5">
-// 						<Card className="Card" style={{backgroundColor: this.state.cardColor}}>
-// 							<CardBody>
-// 								<CardTitle>Your Office Location</CardTitle>
-// 								<Input type="text" name="address" value={this.state.address} placeholder="Address" onChange={this.onChange}/>
-// 								<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
-// 								<Button className="Button" onClick={() => this.handleClick()}>Next</Button>
-// 							</CardBody>
-// 						</Card>
-// 				  </Col>
-//    			  </Row>
-//     		</Container>
-
+export default SearchByAddress;
 
 
 

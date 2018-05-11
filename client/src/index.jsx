@@ -5,9 +5,9 @@ import 'bootstrap';
 import '../dist/style.css'
 import Autocomplete from 'react-autocomplete'
 
-import Zipcode from './components/Zipcode.jsx';
-import Places from './components/Places.jsx';
-import Results from './components/Results.jsx';
+import SearchByAddress from './components/SearchByAddress.jsx';
+import SearchByBusinessName from './components/SearchByBusinessName.jsx';
+import RestaurantResults from './components/RestaurantResults.jsx';
 import NavBar from './components/NavBar.jsx';
 
 class App extends React.Component {
@@ -44,9 +44,9 @@ class App extends React.Component {
 		return (
 			<div className="App">
 					<NavBar />
-					<Zipcode handleLatLgn={this.handleLatLgn} handleYelpSearch={this.handleYelpSearch}/>
-					<Places lat={this.state.lat} lng={this.state.lng} fulladdress={this.state.fulladdress}/>
-					<Results searchResults={this.state.searchResults}/>
+					<SearchByAddress handleLatLgn={this.handleLatLgn} handleYelpSearch={this.handleYelpSearch}/>
+					<SearchByBusinessName lat={this.state.lat} lng={this.state.lng} fulladdress={this.state.fulladdress}/>
+					<RestaurantResults searchResults={this.state.searchResults}/>
 			</div>
 		)
 	}

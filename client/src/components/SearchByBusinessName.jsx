@@ -8,7 +8,7 @@ import {
 	Input,
 } from 'reactstrap';
 
-class Places extends React.Component{
+class SearchByBusinessName extends React.Component{
 
 	constructor(props) {
 		super(props)
@@ -82,7 +82,7 @@ class Places extends React.Component{
 	}
 }
 
-export default Places;
+export default SearchByBusinessName;
 
 /*
 

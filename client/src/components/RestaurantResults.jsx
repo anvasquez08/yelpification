@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import {Container,  Col, Card, CardBody, CardTitle, 
-	CardSubtitle, CardText, CardGroup, CardImg, Button } from 'reactstrap';
+import { Col, Card, CardBody, CardTitle, CardSubtitle, CardText, CardGroup, CardImg, Button } from 'reactstrap';
 
-class Results extends React.Component{
+class RestaurantResults extends React.Component{
 
 	constructor(props) {
 		super(props)
@@ -40,4 +39,4 @@ class Results extends React.Component{
 	}
 }
 
-export default Results;
+export default RestaurantResults;
