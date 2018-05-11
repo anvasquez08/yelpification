@@ -5,30 +5,14 @@ const {Headers} = require('../config.js')
 const axios = require('axios');
 
 const yelpRoutes= {
-  autocomplete: { 
-    post: function(req, res) {
-      const {lat, lng, text} = req.body; 
-      axios.get(`https://api.yelp.com/v3/autocomplete?&text=${text}&latitude=${lat}&longitude=${lng}`, Headers)
-        .then((response) => {
-          res.send(response.data)
-        })
-        .catch((err) => console.log(err))
-    }
-  },
   searchPlaces: {	
     post: function(req, res) {
       const {lat, lng} = req.body; 
       axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${10}`, Headers)
-        .then((response) => {
-          res.send(response.data)
-        })
-        .catch((err) => console.log(err))
+        .then((response) => res.send(response.data))
+        .catch((err) => res.send(err))
     }
   }
 }
 
   module.exports = yelpRoutes
-
-  /*
-  - missing term and radius
-  */
