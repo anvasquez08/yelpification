@@ -28,7 +28,8 @@ class RestaurantResults extends React.Component{
 						          <CardText>{place.location.address1} 
 						          <br></br>
 						          {place.location.city}, {place.location.zip_code}</CardText>
-						          <Button onClick={() => this.props.handleYelpRestaurantID(place.id)}>More Details</Button>
+						          <Button className="Button-cards" onClick={() => this.props.handleYelpRestaurantID(place.id)}>Profile</Button>
+						          <Button className="Button-cards" onClick={() => this.props.handleYelpRestaurantID(place.id)}> Save </Button>
 							   </CardBody>
 						    </Card>
 						</Col>

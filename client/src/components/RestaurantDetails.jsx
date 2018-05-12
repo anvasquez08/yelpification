@@ -8,8 +8,8 @@ class RestaurantDetails extends React.Component {
 	render() {
 		return (
 			<div style={{ width:" 700px", padding: "20px", border: "5px", margin: "0"}}>
-				<Button onClick={() => this.props.handleViewChange()}>Back to search results...</Button>
-				<Button onClick={() => this.props.handleViewChange()}>Save to Bookmarks</Button>
+				<Button className="Button" onClick={() => this.props.handleViewChange()}>Back to search results...</Button>
+				<Button className="Button" onClick={() => this.props.handleViewChange()}>Save to Bookmarks</Button>
 				<br></br>
 				<div>
 					<div>

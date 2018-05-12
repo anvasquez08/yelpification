@@ -19,8 +19,21 @@ body {
 }
 
 .Button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
   background-color: #F7F5F3;
 }
+
+.Button-cards {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color: #F7F5F3;
+
+}
+
 
 .img-responsive {
     display: block;
