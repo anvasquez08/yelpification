@@ -46,7 +46,8 @@ class App extends React.Component {
 	}
 
 	handleYelpResultsForId(data) {
-		this.setState({yelpResultsForId: [data]}, () => this.handleViewChange())
+		let newResults = [data]
+		this.setState({yelpResultsForId: newResults}, () => this.handleViewChange())
 	}
 
 	handleYelpIDSearch() {

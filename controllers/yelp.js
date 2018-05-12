@@ -22,7 +22,8 @@ const yelpRoutes= {
   			axios.get(`https://api.yelp.com/v3/businesses/${id}/reviews`, Headers)
   			.then(response => {
   				const reviews = response.data
-	  			res.send([resultDetails, reviews])
+          resultDetails['reviews'] = reviews
+	  			res.send(resultDetails)
 	  		 })
   			.catch((err) => console.log('inner error'))
   		})  		
