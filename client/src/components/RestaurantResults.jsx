@@ -41,20 +41,3 @@ class RestaurantResults extends React.Component{
 }
 
 export default RestaurantResults;
-
-			// const {username} = req.params;
-			// const { id, image_url, name, url, rating, location_address1, location_city, location_zip_code} = req.body;	
-			// User.find({where: {username: username}}).then(user => {
-			// 	Preferences.create({
-			// 		id: id, 
-			// 		image_url: image_url, 
-			// 		name: name,
-			// 		url: url, 
-			// 		rating: rating, 
-			// 		location_address1: location_address1, 
-			// 		location_city: location_city, 
-			// 		location_zip_code: location_zip_code
-					
-			// 		yelpID: yelpID,
-			// 		name: name,
-			// 		alias: alias,

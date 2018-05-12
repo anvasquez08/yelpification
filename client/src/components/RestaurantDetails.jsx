@@ -53,7 +53,7 @@ class RestaurantDetails extends React.Component {
 
 										    </dl>
 										  	<Button className="Button" style={{ "backgroundColor": "#d9534f", color: "#ECF0F1"}} onClick={() => this.props.savePlaceToDB(business)}>Save to Bookmarks</Button>
-									       <Button className="Button" style={{ "backgroundColor": "#d9534f", color: "#ECF0F1"}} onClick={() => this.props.handleViewChange()}>Back to search results...</Button>
+									       <Button className="Button" style={{ "backgroundColor": "#d9534f", color: "#ECF0F1"}} onClick={() => this.props.handleViewStateChange('restaurantResults')}>Back to search results...</Button>
 										  </dd>
 										</dl>
 									)

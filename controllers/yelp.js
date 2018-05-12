@@ -8,7 +8,7 @@ const yelpRoutes= {
   searchPlaces: {	
     post: function(req, res) {
       const {lat, lng} = req.body; 
-      axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${10}`, Headers)
+      axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${50}`, Headers)
         .then((response) => res.send(response.data))
         .catch((err) => res.send(err))
     }

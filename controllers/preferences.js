@@ -21,6 +21,8 @@ const preferencesRoutes = {
 		post: (req, res) => {
 			const {username} = req.params;
 			const {  id, image_url, name, url, rating, location_address1, location_city, location_zip_code } = req.body;
+			console.log( username, id, image_url, name, url, rating, location_address1, location_city, location_zip_code)
+			// res.send('hitting')
 			User.find({where: {username: username}}).then(user => {
 				Preferences.create({
 					id: id, 
@@ -58,20 +60,4 @@ module.exports = preferencesRoutes
 
 /* Reason for double add query:
 		"An instance can be created with nested association in one step, provided all elements are new."
-OLD VERSION:
-	delete: {
-		delete:(req, res) => {
-		const {username, yelpID} = req.params;
-		Preferences.find({
-			include: [{
-				model: User, 
-				where: {username: username}
-			}], 
-			where: {yelpID: yelpID}
-		})
-		.then(entry => entry.destroy())	
-			.then(() => res.send('deleted'))
-			.catch(() => res.status(410))
-		.catch(err => res.send('err: data does not exist'))
-		}}
 */
