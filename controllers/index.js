@@ -12,5 +12,6 @@ router.post('/geocode', google.geocode.post);
 router.post('/places', google.places.post);
 
 router.post('/searchPlaces/', yelp.searchPlaces.post);   			          
+router.post('/searchId/:id', yelp.searchId.post);  
 
 module.exports = router;

@@ -8,6 +8,8 @@ class RestaurantResults extends React.Component{
 		super(props)
 	}
 
+
+
 	render() {
 		return (
 			<CardGroup>
@@ -26,7 +28,7 @@ class RestaurantResults extends React.Component{
 						          <CardText>{place.location.address1} 
 						          <br></br>
 						          {place.location.city}, {place.location.zip_code}</CardText>
-						          <Button>Button</Button>
+						          <Button onClick={() => this.props.handleYelpRestaurantID(place.id)}>More Details</Button>
 							   </CardBody>
 						    </Card>
 						</Col>
