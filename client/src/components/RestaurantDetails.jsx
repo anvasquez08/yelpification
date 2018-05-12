@@ -7,18 +7,20 @@ class RestaurantDetails extends React.Component {
 
 	render() {
 		return (
-			<div style={{ width:" 700px", padding: "20px", border: "5px", margin: "0"}}>
-				<Button className="Button" onClick={() => this.props.handleViewChange()}>Back to search results...</Button>
-				<Button className="Button" onClick={() => this.props.handleViewChange()}>Save to Bookmarks</Button>
-				<br></br>
+			<div style={{ width:" 700px", padding: "20px", border: "5px", margin: "0"}}>			
 				<div>
 					<div>
 					<br></br>
-
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
+					<br></br>
 							{
 								this.props.yelpResultsForId.map((business, idx) => {
 									return (
-										<dl className="row" key={idx}>
+
+										<dl className="row" key={idx} >
 										  <dt className="col-sm-3">Name</dt>
 										  <dd className="col-sm-9">{business.name}</dd>
 
@@ -48,7 +50,10 @@ class RestaurantDetails extends React.Component {
 										    <dl className="row">
 										      <dt className="col-sm-4">{business.reviews.reviews[2].user.name}</dt>
 										      <dd className="col-sm-8">{business.reviews.reviews[2].text}</dd>
+
 										    </dl>
+										  	<Button className="Button" style={{ "backgroundColor": "#d9534f", color: "#ECF0F1"}} onClick={() => this.props.savePlaceToDB(business)}>Save to Bookmarks</Button>
+									       <Button className="Button" style={{ "backgroundColor": "#d9534f", color: "#ECF0F1"}} onClick={() => this.props.handleViewChange()}>Back to search results...</Button>
 										  </dd>
 										</dl>
 									)

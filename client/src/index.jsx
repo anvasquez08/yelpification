@@ -31,6 +31,7 @@ class App extends React.Component {
 		this.handleYelpResultsForId = this.handleYelpResultsForId.bind(this);
 		this.handleYelpIDSearch = this.handleYelpIDSearch.bind(this);
 		this.handleYelpSearch = this.handleYelpSearch.bind(this);
+		this.savePlaceToDB = this.savePlaceToDB.bind(this);
 	}
 
 	handleLatLgn(targetAddress, targetLat, targetLng) {
@@ -70,6 +71,13 @@ class App extends React.Component {
 		.catch(err => console.log(err))
 	}
 
+	savePlaceToDB(place) {
+		console.log('this is the place to be saved', place)
+	    /*const {username} = req.params;
+	    const {yelpID, name, alias} = req.body;
+
+		axios.post(`/preferences/${Ana}`)*/
+	}
 
 	render() {
 		return (
@@ -81,11 +89,13 @@ class App extends React.Component {
 						this.state.viewRestaurantDetails === true ? (
 					      <RestaurantDetails
 					      	handleViewChange={this.handleViewChange}
-					      	yelpResultsForId={this.state.yelpResultsForId}/>
+					      	yelpResultsForId={this.state.yelpResultsForId}
+					      	savePlaceToDB={this.savePlaceToDB}/>
 							) : (
 						  <RestaurantResults 
 							searchResults={this.state.searchResults} 
-							handleYelpRestaurantID={this.handleYelpRestaurantID}/>
+							handleYelpRestaurantID={this.handleYelpRestaurantID}
+							savePlaceToDB={this.savePlaceToDB}/>
 						)
 					}
 			</div>
