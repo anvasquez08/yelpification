@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const yelpRoutes= {
   searchPlaces: {	
-    post: function(req, res) {
+    post: (req, res) => {
       const {lat, lng} = req.body; 
       axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${50}`, Headers)
         .then((response) => res.send(response.data))
@@ -29,6 +29,19 @@ const yelpRoutes= {
   		})  		
 	    .catch((err) => console.log('outer error'))
   	}
+  }, 
+  businessSearch: {
+    post: (req, res) => {
+      const {value} = req.body
+      const array = value.split(',').map(str => str.trim())
+      axios.get(`https://api.yelp.com/v3/businesses/matches?name=${array[0]}&address1=${array[1]}&city=${array[2]}&state=${array[3]}&country=${array[4].slice(0, 2)}`, Headers)
+      .then(response => {
+        console.log(response.data)
+        res.send(response)
+      })
+      .catch(err => console.log(err))
+      res.send('hit')
+    }
   }
 }
 

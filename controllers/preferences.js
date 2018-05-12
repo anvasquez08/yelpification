@@ -21,8 +21,6 @@ const preferencesRoutes = {
 		post: (req, res) => {
 			const {username} = req.params;
 			const {  id, image_url, name, url, rating, location_address1, location_city, location_zip_code } = req.body;
-			console.log( username, id, image_url, name, url, rating, location_address1, location_city, location_zip_code)
-			// res.send('hitting')
 			User.find({where: {username: username}}).then(user => {
 				Preferences.create({
 					id: id, 

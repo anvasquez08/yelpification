@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Autocomplete from 'react-autocomplete'
-import axios from 'axios';
-import {
-	Container, Row, Col,
-	Card, CardBody, CardTitle, 
-  Button, 
-	Input,
-} from 'reactstrap';
+import axios from 'axios'; 
+import PropTypes from 'prop-types'
+import { Container, Row, Col, Card, CardBody, CardTitle, Button, Input} from 'reactstrap';
 
 class SearchByBusinessName extends React.Component{
 
@@ -24,6 +20,7 @@ class SearchByBusinessName extends React.Component{
 		this.autoComplete = this.autoComplete.bind(this);
 		this.renderItem = this.renderItem.bind(this);
 		this.getItemValue = this.getItemValue.bind(this);
+		this.getYelpProfile = this.getYelpProfile.bind(this);
 	}
 
 	onChange(event) { 
@@ -51,7 +48,7 @@ class SearchByBusinessName extends React.Component{
 
 	renderItem(item) {
 		return (
-        <div key={item.id} style={{backgroundColor: this.state.isHighlighted ? '#eee' : 'transparent'}}>
+        <div key={item.id} style={ this.state.isHighlighted ? {backgroundColor: '#eee'} : {backgroundColor:'transparent'}}>
           {item.description}
         </div>   
      )
@@ -59,6 +56,17 @@ class SearchByBusinessName extends React.Component{
 	
 	getItemValue(item){
     return item.description;
+  }
+
+  getYelpProfile() {
+  	console.log(this.state.value)
+  	const body = {value: this.state.value}
+
+  	axios.post('/businessSearch', body)
+  	.then(response => {
+  		console.log(response)
+  	})
+  	.catch(err => console.log(err))
   }
 
 	render() {
@@ -75,7 +83,7 @@ class SearchByBusinessName extends React.Component{
 						value={value}
 						onChange={this.onChange}
 						onSelect={val => this.onStateChange('value', val)}/>
-				  	<Button className="Button" onClick={() => console.log(name)}>Search</Button>    									
+				  	<Button className="Button" onClick={() => this.getYelpProfile()}>Search</Button>    									
 				</Col>	
 			</div>	
 		)
@@ -84,37 +92,10 @@ class SearchByBusinessName extends React.Component{
 
 export default SearchByBusinessName;
 
-/*
-
-	old 
-    render() {
-		const {value, autocompleteData} = this.state;
-		return (
-
-				<Container fluid>
-					{console.log(this.state.autocompleteData)}
-			  	<br></br>
-				  	<Row>
-				  	<Col sm="5">
-				  		<Card className="Card">
-				  			<CardBody>
-				  				<CardTitle>Places</CardTitle>
-									<Autocomplete
-							   		items={autocompleteData}
-							      getItemValue={this.getItemValue}
-							      renderItem={(item) => this.renderItem(item)}
-							      value={value}
-							      onChange={this.onChange}
-							      onSelect={val => this.onStateChange('value', val)}/>
-				  				<Button className="Button" onClick={() => console.log(name)}>Add To My Places</Button>    									
-				  				<Button className="Button" onClick={() => console.log(name)}>Let's move on</Button>
-				  			</CardBody>
-				  		</Card>
-				  	</Col>
-				  	</Row>			
-				</Container>
-		)
-	}
+SearchByBusinessName.PropTypes = {
+	autocompleteData: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array
+  ]),
 }
 
-*/
