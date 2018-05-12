@@ -6,7 +6,7 @@ const google = require('./google.js')
 
 router.get('/preferences/:username', preferences.search.get);  				  
 router.post('/preferences/:username', preferences.add.post);   				  
-router.delete('/preferences/:username/:yelpID', preferences.delete.delete);  
+router.delete('/preferences/:username/:id', preferences.delete.delete);  
 
 router.post('/geocode', google.geocode.post); 
 router.post('/places', google.places.post);
