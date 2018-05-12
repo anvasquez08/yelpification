@@ -120,7 +120,7 @@ class App extends React.Component {
 				savePlaceToDB={this.savePlaceToDB}/>
 
 		} else if (view === 'bookmarks') {
-			return <Bookmarks />
+			return <Bookmarks signedinUser={this.state.signedinUser}/>
 		}
 	}
 
