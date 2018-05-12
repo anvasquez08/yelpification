@@ -20,12 +20,17 @@ const preferencesRoutes = {
 	add: {
 		post: (req, res) => {
 			const {username} = req.params;
-			const {yelpID, name, alias} = req.body;
+			const {  id, image_url, name, url, rating, location_address1, location_city, location_zip_code } = req.body;
 			User.find({where: {username: username}}).then(user => {
 				Preferences.create({
-					yelpID: yelpID,
+					id: id, 
+					image_url: image_url, 
 					name: name,
-					alias: alias,
+					url: url, 
+					rating: rating, 
+					location_address1: location_address1, 
+					location_city: location_city, 
+					location_zip_code: location_zip_code,
 					userId: user.getDataValue('id')
 				}).then(() => res.send('entry saved'))
 				.catch(() => res.status(406))
@@ -53,4 +58,20 @@ module.exports = preferencesRoutes
 
 /* Reason for double add query:
 		"An instance can be created with nested association in one step, provided all elements are new."
+OLD VERSION:
+	add: {
+		post: (req, res) => {
+			const {username} = req.params;
+			const {yelpID, name, alias} = req.body;
+			User.find({where: {username: username}}).then(user => {
+				Preferences.create({
+					yelpID: yelpID,
+					name: name,
+					alias: alias,
+					userId: user.getDataValue('id')
+				}).then(() => res.send('entry saved'))
+				.catch(() => res.status(406))
+			})
+		}
+	}, 
 */

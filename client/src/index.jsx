@@ -22,7 +22,8 @@ class App extends React.Component {
 			searchResults: [], 
 			yelpRestaurantID: '',
 			yelpResultsForId: [],
-			viewRestaurantDetails: false
+			viewRestaurantDetails: false, 
+			signedinUser: 'Ana' // need to udpdate when authentication impletmented
 		}
 
 		this.handleLatLgn = this.handleLatLgn.bind(this);
@@ -72,11 +73,21 @@ class App extends React.Component {
 	}
 
 	savePlaceToDB(place) {
-		console.log('this is the place to be saved', place)
-	    /*const {username} = req.params;
-	    const {yelpID, name, alias} = req.body;
-
-		axios.post(`/preferences/${Ana}`)*/
+		const {id,  image_url, name, url, rating } = place
+		const body ={
+		  id: id,
+		  image_url: image_url,
+		  name: name,
+		  url: url,
+		  rating: rating,
+		  location_address1: place.location['address1'],
+		  location_city: place.location['city'], 
+		  location_zip_code: place.location['zip_code']
+		} 
+		console.log(body)
+		axios.post(`/preferences/${this.state.signedinUser}`, body)
+		.then(response => console.log('saved to DB'))
+		.catch(err => console.log(err))
 	}
 
 	render() {
