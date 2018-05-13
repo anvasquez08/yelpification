@@ -18,17 +18,19 @@ class RestaurantResults extends React.Component{
 			    this.props.searchResults.map((place, idx) => {
 			    	return (
 						 <Col sm="3"key={idx}>
-						    <Card style={{width: "18rem"}}>
+						    <Card style={{width: "18rem"}} >
 						  	  <CardImg top width="100%" src={place.image_url} className="img-responsive"/>
-						      <CardBody style={{height: "10rem"}}>
-						          <CardTitle><a href={place.url}>{place.name}</a></CardTitle>
-						          <CardSubtitle>Yelp Rating: {place.rating}</CardSubtitle>
-						          <CardText>{place.location.address1} 
+						      <div style={{height: "10rem"}} className="card-body" style={{"marginLeft": "5px"}}>
+						          <div ><a href={place.url}>{place.name}</a></div>
+						          <div >Yelp Rating: {place.rating}</div>
+						          <div>{place.location.address1} 
 						          <br></br>
-						          {place.location.city}, {place.location.zip_code}</CardText>
-						          <Button className="Button-cards" onClick={() => this.props.handleYelpRestaurantID(place.id)}>Profile</Button>
-						          <Button className="Button-cards" onClick={() => this.props.savePlaceToDB(place)}> Save </Button>
-							   </CardBody>
+						          {place.location.city}, {place.location.zip_code}</div>
+						          <button type="button" className="btn-sm" style={{  "marginTop": "5px", "marginBottom": "5px","marginRight": "5px","backgroundColor": "#F7F5F3"}}
+						          	onClick={() => this.props.handleYelpRestaurantID(place.id)}>Profile</button>
+						          <button type="button" className="btn-sm" style={{  "marginTop": "5px", "marginBottom": "5px","marginRight": "5px","marginLeft": "5px","backgroundColor": "#F7F5F3"}}
+						          	onClick={() => this.props.savePlaceToDB(place)}> Save </button>
+							   </div>
 						    </Card>
 						</Col>
 			    	)
@@ -40,4 +42,4 @@ class RestaurantResults extends React.Component{
 	}
 }
 
-export default RestaurantResults;
+export default RestaurantResults; //"Button-cards

@@ -1,7 +1,7 @@
 const sequelize = require(`../database/models/index.js`).sequelize;
 const Preferences = sequelize.import(`../database/models/preferences.js`);
 const User = sequelize.import(`../database/models/user.js`);
-const {Headers} = require('../config.js')
+const {Headers,Google_API} = require('../config.js')
 const axios = require('axios');
 
 const yelpRoutes= {
@@ -29,20 +29,10 @@ const yelpRoutes= {
   		})  		
 	    .catch((err) => console.log('outer error'))
   	}
-  }, 
-  businessSearch: {
-    post: (req, res) => {
-      const {value} = req.body
-      const array = value.split(',').map(str => str.trim())
-      axios.get(`https://api.yelp.com/v3/businesses/matches?name=${array[0]}&address1=${array[1]}&city=${array[2]}&state=${array[3]}&country=${array[4].slice(0, 2)}`, Headers)
-      .then(response => {
-        console.log(response.data)
-        res.send(response)
-      })
-      .catch(err => console.log(err))
-      res.send('hit')
-    }
   }
 }
 
   module.exports = yelpRoutes
+  //axios.get(`https://api.yelp.com/v3/businesses/matches?name=${array[0]}&address1=${array[1]}&city=${array[2]}&state=${array[3]}&country=${array[4].slice(0, 2)}`, Headers)
+//https://data.cityofnewyork.us/resource/xx67-kt59.json?$where=dba="Udon West" 
+// https://data.cityofnewyork.us/resource/xx67-kt59.json?$q="Totto Ramen" 

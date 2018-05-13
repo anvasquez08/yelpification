@@ -69,3 +69,7 @@ body {
    /*animation: fadein 2;*/
 }
 
+.smallerText {
+  fontSize: 1px;
+}
+
