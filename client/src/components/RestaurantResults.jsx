@@ -23,6 +23,7 @@ class RestaurantResults extends React.Component{
 						      <div style={{height: "10rem"}} className="card-body" style={{"marginLeft": "5px"}}>
 						          <div ><a href={place.url}>{place.name}</a></div>
 						          <div >Yelp Rating: {place.rating}</div>
+						          <div>{place.healthRating.length > 0 ? "Health Rating Available" : "Health Rating Not Available" } </div>
 						          <div>{place.location.address1} 
 						          <br></br>
 						          {place.location.city}, {place.location.zip_code}</div>
