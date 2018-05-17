@@ -13,5 +13,6 @@ router.post('/places', google.places.post);
 
 router.post('/searchPlaces/', yelp.searchPlaces.post);   			          
 router.post('/searchId/:id', yelp.searchId.post);  
+router.post('/searchName', yelp.searchName.post);  
 
 module.exports = router;

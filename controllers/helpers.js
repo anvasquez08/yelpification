@@ -41,6 +41,11 @@ const helpers = {
 	  return axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${30}`, Headers)
 	  .then(response => {return response.data.businesses})
 	  .catch(err => console.log('error fetching closest businesses'))
+	}, 
+	fetchBusinessesByName: (name, address) => {
+	  return axios.get(`https://api.yelp.com/v3/businesses/search?term="${name}"&location="${address}"`, Headers)
+	  .then(response => {return response.data.businesses})
+	  .catch(err => console.log(err))
 	}
 }
 
