@@ -28,6 +28,7 @@ class App extends React.Component {
 		}
 
 		this.handleLatLgn = this.handleLatLgn.bind(this);
+		this.handleSearchResults = this.handleSearchResults.bind(this);
 		this.handleYelpRestaurantID = this.handleYelpRestaurantID.bind(this);
 		this.handleYelpResultsForId = this.handleYelpResultsForId.bind(this);
 		this.handleYelpIDSearch = this.handleYelpIDSearch.bind(this);
@@ -42,6 +43,8 @@ class App extends React.Component {
 	handleLatLgn(targetAddress, targetLat, targetLng) {
 		this.setState({fulladdress: targetAddress, lat: targetLat, lng: targetLng}, () => this.handleYelpSearch())
 	}
+
+	handleSearchResults(data) {this.setState({searchResults: data}, () => this.handleViewStateChange('restaurantResults') )}
 
 	handleYelpSearch() {
 		console.log('fetching yelp results...')
@@ -134,7 +137,8 @@ class App extends React.Component {
 													 	handleYelpSearch={this.handleYelpSearch}/>
 					<SearchByBusinessName 
 														lat={this.state.lat} lng={this.state.lng} 
-														fulladdress={this.state.fulladdress}/>
+														fulladdress={this.state.fulladdress}
+														handleSearchResults={this.handleSearchResults}/>
 					<div> 
 					{this.renderViewChanger()}
 					</div>

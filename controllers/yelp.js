@@ -18,7 +18,7 @@ const yelpRoutes= {
   searchId: {
   	post: (req,res) => {
   		let {id} = req.params
-      `fetchBusinessDetails`(id)
+      fetchBusinessDetails(id)
       .then(response => fetchReviews(id, response))
       .then(response => getHeathRating(response))
       .then(response => res.send(response))
@@ -30,7 +30,6 @@ const yelpRoutes= {
       const {term} = req.body;
       const name = term.split(',')[0]
       const address = term.split(',').slice(1).join(',').trim()
-
       fetchBusinessesByName(name, address)
       .then(response => Promise.all(response.map(getHeathRating)))
       .then(response => {

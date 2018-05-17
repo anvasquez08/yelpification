@@ -59,12 +59,12 @@ class SearchByBusinessName extends React.Component{
   }
 
   getYelpProfile() {
-  	console.log(this.state.value)
-  	const body = {value: this.state.value}
+  	const body = {term: this.state.value}
 
-  	axios.post('/businessSearch', body)
+  	axios.post('/searchName', body)
   	.then(response => {
-  		console.log(response)
+  		console.log('this is the response: ', response.data)
+  		this.props.handleSearchResults(response.data)
   	})
   	.catch(err => console.log(err))
   }
