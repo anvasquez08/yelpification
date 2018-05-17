@@ -19,7 +19,7 @@ class RestaurantResults extends React.Component{
 			    	return (
 						 <Col sm="3"key={idx}>
 						    <Card style={{width: "18rem"}} >
-						  	  <CardImg top width="100%" src={place.image_url} className="img-responsive"/>
+						   	<CardImg top width="100%" src={place.image_url} className="img-responsive"/>
 						      <div style={{height: "10rem"}} className="card-body" style={{"marginLeft": "5px"}}>
 						          <div ><a href={place.url}>{place.name}</a></div>
 						          <div >Yelp Rating: {place.rating}</div>

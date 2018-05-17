@@ -9,11 +9,14 @@ const yelpRoutes= {
   searchPlaces: {	
     post: (req, res) => {
       const {lat, lng} = req.body; 
-      axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${30}`, Headers)
+      axios.get(`https://api.yelp.com/v3/businesses/search?term="food"&latitude=${lat}&longitude=${lng}&open_now=${true}&limit=${40}`, Headers)
         .then(response => {   
           const arrayOfPlaces = response.data.businesses
           Promise.all(arrayOfPlaces.map(getHeathRating))
-          .then(data => res.send(data))
+          .then(data => {
+            const finalData = data.filter(obj => obj !== undefined)
+            res.send(finalData)
+          })
           .catch(err => console.log('inner error', err))
         })
         .catch(err => console.log('outter err'))       

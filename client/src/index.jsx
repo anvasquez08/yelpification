@@ -46,10 +46,11 @@ class App extends React.Component {
 	handleYelpSearch() {
 		console.log('fetching yelp results...')
 		const body = {lat: this.state.lat, lng: this.state.lng}
+		console.log(body)
 		axios.post('/searchPlaces', body)
 		.then(response => {
-			console.log(response.data.businesses)
-			this.setState({searchResults: response.data.businesses}, () => this.handleViewStateChange('restaurantResults'))
+			// console.log(response.data)
+			this.setState({searchResults: response.data}, () => this.handleViewStateChange('restaurantResults'))
 		})
 		.catch(err => console.log(err))
 	}
