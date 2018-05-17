@@ -1,5 +1,9 @@
 const sequelize = require(`../database/models/index.js`).sequelize;
 const User = sequelize.import(`../database/models/user.js`);
+// const sequelize = require(`../database/models/index.js`).sequelize;
+// const Preferences = sequelize.import(`../database/models/preferences.js`);
+// const User = sequelize.import(`../database/models/user.js`);
+// const { Headers, Google_API } = require('../config.js')
 
 const userRoutes = {
   signup: {
