@@ -42,15 +42,13 @@ class SearchByAddress extends React.Component {
 
 	render() {
 		return (
-			<div className="jumbotron-fluid picture-header">
-				<div className="text">
-						<Col sm="5">
-								<div>Find Lunch Nearby</div>
-								<Input type="text" name="address" value={this.state.address} placeholder="Office Address" onChange={this.onChange}/>
-								<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
-								<Button className="Button" onClick={() => this.handleClick()}>Find a Bite</Button>
-						</Col>
-				</div>
+			<div>
+				<Col sm="6">
+					<div>Places Nearby</div>
+					<Input type="text" name="address" value={this.state.address} placeholder="Street" onChange={this.onChange}/>
+					<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
+					<Button className="Button" onClick={() => this.handleClick()}>Find a Bite</Button>
+				</Col>
 		    </div>
 		)
 	}

@@ -135,20 +135,18 @@ class App extends React.Component {
 				
 				<div className="container">
 					<div className="row">
-						<div>
 							<SearchByAddress handleLatLgn={this.handleLatLgn} 
-						  		handleYelpSearch={this.handleYelpSearch}/>
-						</div>
-						<div >
+							  		handleYelpSearch={this.handleYelpSearch}/>
+							
 							<SearchByBusinessName lat={this.state.lat} lng={this.state.lng} 
-								fulladdress={this.state.fulladdress}
-								handleSearchResults={this.handleSearchResults}/>
-						</div>
+									fulladdress={this.state.fulladdress}
+									handleSearchResults={this.handleSearchResults}/>
 					</div>				
 				</div>
 
+
 				<div> {this.renderViewChanger()}</div>
-				
+
 			</div>
 		)
 	}
