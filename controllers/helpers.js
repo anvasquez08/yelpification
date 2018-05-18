@@ -81,7 +81,7 @@ const helpers = {
 		        violationsArr.push(violations)
 		      }
 		  })
-	   return data
+	   return [data]
 	}
 }
 
