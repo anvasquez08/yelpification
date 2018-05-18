@@ -47,6 +47,23 @@ const helpers = {
 	  .then(response => {return response.data.businesses})
 	  .catch(err => console.log(err))
 	}, 
+	formatIntoArray: (result) => {
+		let newObj = {}
+		    result.forEach(year => {
+			
+			for (let key in year) {
+			    if (!newObj[key]) {
+			       newObj[key] = [];
+			    }			    
+			    for (let k in year[key]) {
+			        newObj[key].push(year[key][k])
+			      }
+			    }
+			}) 
+
+
+		return newObj;
+	},
 	formatHealthData: (results) => {
 		let data = {}	
 		results.forEach((healthRating) => {
@@ -65,6 +82,7 @@ const helpers = {
 		        data[year][date] = {}
 		        const key = data[year][date]
 		        if (healthRating.grade === undefined)  healthRating.grade = 'No Score'
+		        key.inspection_date = date
 		        key.healthRating = [healthRating.grade] 
 		        key.score = [healthRating.score] 
 		        key.violations = [violations]
@@ -81,7 +99,9 @@ const helpers = {
 		        violationsArr.push(violations)
 		      }
 		  })
-	   return [data]
+
+		const finalData = helpers.formatIntoArray([data])
+	   return [finalData]
 	}
 }
 

@@ -6,6 +6,31 @@ class RestaurantDetails extends React.Component {
 
 	constructor(props) {
 		super(props)
+		this.state = {
+			2015: [],
+			2016: [],
+			2017: [],
+			2018: []
+		}
+	}
+
+	componentDidMount() {
+		// if (this.props.yelpResultsForId[0].healthRating[0]['2015']) {
+			let d1 = this.props.yelpResultsForId[0].healthRating[0]['2015']
+			this.setState({2015: d1})
+		// } 
+		// if (this.props.yelpResultsForId[0].healthRating[0]['2016']) {
+			let d2 = this.props.yelpResultsForId[0].healthRating[0]['2016']
+			this.setState({2016: d2})
+		// } 
+		// if (this.props.yelpResultsForId[0].healthRating[0]['2017']) {
+			let d3 = this.props.yelpResultsForId[0].healthRating[0]['2017']
+			this.setState({2017: d3})
+		// } 
+		// if (this.props.yelpResultsForId[0].healthRating[0]['2018']) {
+			let d4 = this.props.yelpResultsForId[0].healthRating[0]['2018']
+			this.setState({2018: d4})
+		// }
 	}
 
 	render() {
@@ -14,17 +39,12 @@ class RestaurantDetails extends React.Component {
 		const address = this.props.yelpResultsForId[0].location.display_address.join(', ')
 		const categories = this.props.yelpResultsForId[0].categories.map(obj => {return obj.title}).join(', ')
 
-
 		return (
 				<div className="container-fluid">
 					<div className="col-lg-12">
 
 					    <h1 className="Title">{name}</h1>
 					    <h6 className="Address">{address}</h6>
-
-					
-					    
-					    {console.log(this.props.yelpResultsForId[0])}
 							<div className="row">
 								<div className="col-lg-6">
 								    {
@@ -65,12 +85,16 @@ class RestaurantDetails extends React.Component {
 									}
 								</div>
 								<div className="col-lg-6">
-									        <table className="table table-bordered">
+								{
+
+									Object.keys(this.props.yelpResultsForId[0].healthRating[0]).length > 0 ? (<div>
+
+										<table className="table table-bordered">
 											  <thead>
 											    <tr>
-											      <th scope="col">#</th>
-											      <th scope="col">First</th>
-											      <th scope="col">Last</th>
+											      <th scope="col">Year</th>
+											      <th scope="col">Score</th>
+											      <th scope="col">healthRating</th>
 											      <th scope="col">Handle</th>
 											    </tr>
 											  </thead>
@@ -95,7 +119,15 @@ class RestaurantDetails extends React.Component {
 											  </tbody>
 											</table>
 											<Button className="Button-details" onClick={() => this.props.savePlaceToDB(business)}>Save to Bookmarks</Button>
-											<Button className="Button-details" onClick={() => this.props.handleViewStateChange('restaurantResults')}>Back to search results...</Button>
+											<Button className="Button-details" onClick={() => this.props.handleViewStateChange('restaurantResults')}>Back to search results...</Button>		
+
+									</div>) : (<div>
+										<Button className="Button-details" onClick={() => this.props.savePlaceToDB(business)}>Save to Bookmarks</Button>
+										<Button className="Button-details" onClick={() => this.props.handleViewStateChange('restaurantResults')}>Back to search results...</Button>												
+									</div>)
+
+								}
+
 								</div>	
 							</div>
 					  </div>
