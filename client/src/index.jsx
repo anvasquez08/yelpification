@@ -131,17 +131,24 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-					<NavBar 					handleViewStateChange={this.handleViewStateChange}/>
-					<SearchByAddress 
-														handleLatLgn={this.handleLatLgn} 
-													 	handleYelpSearch={this.handleYelpSearch}/>
-					<SearchByBusinessName 
-														lat={this.state.lat} lng={this.state.lng} 
-														fulladdress={this.state.fulladdress}
-														handleSearchResults={this.handleSearchResults}/>
-					<div> 
-					{this.renderViewChanger()}
-					</div>
+				<NavBar handleViewStateChange={this.handleViewStateChange}/>
+				
+				<div className="container">
+					<div className="row">
+						<div>
+							<SearchByAddress handleLatLgn={this.handleLatLgn} 
+						  		handleYelpSearch={this.handleYelpSearch}/>
+						</div>
+						<div >
+							<SearchByBusinessName lat={this.state.lat} lng={this.state.lng} 
+								fulladdress={this.state.fulladdress}
+								handleSearchResults={this.handleSearchResults}/>
+						</div>
+					</div>				
+				</div>
+
+				<div> {this.renderViewChanger()}</div>
+				
 			</div>
 		)
 	}

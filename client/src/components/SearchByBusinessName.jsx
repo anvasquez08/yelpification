@@ -65,6 +65,7 @@ class SearchByBusinessName extends React.Component{
   	.then(response => {
   		console.log('this is the response: ', response.data)
   		this.props.handleSearchResults(response.data)
+  		this.setState({value: ''})
   	})
   	.catch(err => console.log(err))
   }
