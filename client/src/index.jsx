@@ -130,7 +130,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div>
 				<NavBar handleViewStateChange={this.handleViewStateChange}/>
 				
 				<div className="container">

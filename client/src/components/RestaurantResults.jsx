@@ -11,8 +11,6 @@ class RestaurantResults extends React.Component{
 	render() {
 		return (
 			<CardGroup>
-			<br></br>
-			<br></br>
 			  {
 			    this.props.searchResults && 
 			    this.props.searchResults.map((place, idx) => {
@@ -44,3 +42,10 @@ class RestaurantResults extends React.Component{
 }
 
 export default RestaurantResults; //"Button-cards
+
+
+
+
+
+
+

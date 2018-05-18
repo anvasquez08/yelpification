@@ -73,11 +73,8 @@ class SearchByBusinessName extends React.Component{
 	render() {
 		const {value, autocompleteData} = this.state;
 		return (
-			<div className="searchBars">
-				<Col sm="6">
+			<div className="searchBars">	
 				Search by Name 
-			
-
 					<Autocomplete
 						inputProps={{ className: 'form-control', placeholder: 'Business', style: { width: '500px'}}} 
 						items={autocompleteData}
@@ -85,10 +82,8 @@ class SearchByBusinessName extends React.Component{
 						renderItem={(item) => this.renderItem(item)}
 						value={value}
 						onChange={this.onChange}
-						onSelect={val => this.onStateChange('value', val)}/>
-				
-				  	<Button className="Button" onClick={() => this.getYelpProfile()}>Search</Button>    									
-				</Col>	
+						onSelect={val => this.onStateChange('value', val)}/>					
+					<Button className="Button " onClick={() => this.getYelpProfile()}>Search</Button>    													  	
 			</div>	
 		)
 	}

@@ -1,5 +1,5 @@
 const axios = require('axios'); 
-const { getHeathRating, fetchBusinessDetails, fetchReviews, fetchClosestBusinesses, fetchBusinessesByName } = require('./helpers.js')
+const { getHeathRating, fetchBusinessDetails, fetchReviews, fetchClosestBusinesses, fetchBusinessesByName,formatHealthData } = require('./helpers.js')
 const { Headers } = require('../config.js')
 
 const yelpRoutes= {
@@ -21,7 +21,10 @@ const yelpRoutes= {
       fetchBusinessDetails(id)
       .then(response => fetchReviews(id, response))
       .then(response => getHeathRating(response))
-      .then(response => res.send(response))
+      .then(response => {
+        response.healthRating = formatHealthData(response.healthRating)
+        res.send(response)
+      })
       .catch(err => console.log(err))
   	}
   }, 

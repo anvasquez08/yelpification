@@ -15,21 +15,29 @@ body {
 
 .Card {
   background-color: #A292A1;
-   text-align:center
+  text-align:center
 }
 
 .searchBars {
-   height: auto;
-   padding-top: 25px;
-   position: relative;
+  height: auto;
+  padding-top: 25px;
+  padding-bottom: 55px;
+  position: relative;
 }
 
 .Button {
+  width: 20%;
   margin-top: 5px;
   margin-bottom: 5px;
   margin-right: 5px;
   background-color: #F7F5F3;
 }
+
+.profile {
+  margin-right: 25px;
+}
+
+/*"marginTop": "5px", "marginBottom": "5px","marginRight": "5px","marginLeft": "5px"*/
 
 .Button-cards {
   margin-top: 5px;
@@ -57,17 +65,10 @@ body {
   background-size: cover;
   position: relative;
   animation: fadein 2
-
-  /*overflow: hidden;*/
-  /*margin-top: 10px;*/
-  /*max-height: 300px;*/
-  /*display: table;*/
-  /*background position: center center; */
-  /*padding: 180px 7.5%;*/
 }
-
-
 
 .smallerText {
   fontSize: 1px;
 }
+
+

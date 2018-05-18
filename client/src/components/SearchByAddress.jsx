@@ -47,7 +47,6 @@ class SearchByAddress extends React.Component {
 					<Input type="text" name="address" value={this.state.address} placeholder="Street" onChange={this.onChange}/>
 					<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
 					<Button className="Button" onClick={() => this.handleClick()}>Find a Bite</Button>
-		
 		    </div>
 		)
 	}
