@@ -48,7 +48,7 @@ class SearchByBusinessName extends React.Component{
 
 	renderItem(item) {
 		return (
-        <div key={item.id} style={ this.state.isHighlighted ? {backgroundColor: '#eee'} : {backgroundColor:'transparent'}}>
+        <div key={item.id} style={{ background: this.state.isHighlighted ? 'lightgray' : 'white' }}>
           {item.description}
         </div>   
      )
@@ -73,16 +73,19 @@ class SearchByBusinessName extends React.Component{
 		const {value, autocompleteData} = this.state;
 		return (
 			<div className="text">
-				<Col sm="5">
+				<Col sm="6">
 				Search by Name 
 				<br></br>
+
 					<Autocomplete
+						inputProps={{ className: 'form-control', placeholder: 'Business',style: { width: '500px'}}} 
 						items={autocompleteData}
 						getItemValue={this.getItemValue}
 						renderItem={(item) => this.renderItem(item)}
 						value={value}
 						onChange={this.onChange}
 						onSelect={val => this.onStateChange('value', val)}/>
+					<br></br>
 				  	<Button className="Button" onClick={() => this.getYelpProfile()}>Search</Button>    									
 				</Col>	
 			</div>	
@@ -98,4 +101,6 @@ SearchByBusinessName.PropTypes = {
     PropTypes.array
   ]),
 }
-
+		// inputProps={{ style: { width: '100%',height: '40px'}, placeholder: 'Business'}} 
+// style={ this.state.isHighlighted ? {backgroundColor: '#eee'} : {backgroundColor:'transparent'}}
+  // className="form-control" 
