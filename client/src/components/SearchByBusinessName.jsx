@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Autocomplete from 'react-autocomplete'
 import axios from 'axios'; 
-import PropTypes from 'prop-types'
+
 import { Container, Row, Col, Card, CardBody, CardTitle, Button, Input} from 'reactstrap';
 
 class SearchByBusinessName extends React.Component{
@@ -79,14 +79,14 @@ class SearchByBusinessName extends React.Component{
 			
 
 					<Autocomplete
-						inputProps={{ className: 'form-control', placeholder: 'Business',style: { width: '500px'}}} 
+						inputProps={{ className: 'form-control', placeholder: 'Business', style: { width: '500px'}}} 
 						items={autocompleteData}
 						getItemValue={this.getItemValue}
 						renderItem={(item) => this.renderItem(item)}
 						value={value}
 						onChange={this.onChange}
 						onSelect={val => this.onStateChange('value', val)}/>
-					<br></br>
+				
 				  	<Button className="Button" onClick={() => this.getYelpProfile()}>Search</Button>    									
 				</Col>	
 			</div>	
@@ -96,12 +96,4 @@ class SearchByBusinessName extends React.Component{
 
 export default SearchByBusinessName;
 
-SearchByBusinessName.PropTypes = {
-	autocompleteData: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array
-  ]),
-}
-		// inputProps={{ style: { width: '100%',height: '40px'}, placeholder: 'Business'}} 
-// style={ this.state.isHighlighted ? {backgroundColor: '#eee'} : {backgroundColor:'transparent'}}
-  // className="form-control" 
+

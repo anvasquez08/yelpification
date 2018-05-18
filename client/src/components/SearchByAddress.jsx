@@ -42,13 +42,12 @@ class SearchByAddress extends React.Component {
 
 	render() {
 		return (
-			<div className="searchBars">
-				<Col sm="6">
+			<div className="searchBars">		
 					<div>Places Nearby</div>
 					<Input type="text" name="address" value={this.state.address} placeholder="Street" onChange={this.onChange}/>
 					<Input type="text" name="zipcode" value={this.state.zipcode} placeholder="Zipcode" onChange={this.onChange}/>
 					<Button className="Button" onClick={() => this.handleClick()}>Find a Bite</Button>
-				</Col>
+		
 		    </div>
 		)
 	}

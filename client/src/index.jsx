@@ -135,12 +135,15 @@ class App extends React.Component {
 				
 				<div className="container">
 					<div className="row">
+						<div className="col-md-6">
 							<SearchByAddress handleLatLgn={this.handleLatLgn} 
 							  		handleYelpSearch={this.handleYelpSearch}/>
-							
+						</div>
+						<div className="col-md-6">
 							<SearchByBusinessName lat={this.state.lat} lng={this.state.lng} 
 									fulladdress={this.state.fulladdress}
 									handleSearchResults={this.handleSearchResults}/>
+						</div>
 					</div>				
 				</div>
 
