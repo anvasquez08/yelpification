@@ -18,6 +18,12 @@ body {
    text-align:center
 }
 
+.searchBars {
+   height: auto;
+   padding-top: 25px;
+   position: relative;
+}
+
 .Button {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -60,14 +66,7 @@ body {
   /*padding: 180px 7.5%;*/
 }
 
-.text {
-   height: auto;
-   margin-bottom: 10px;
-   position: relative;
-   /*background-size: cover;*/
-   /*width: 100%;*/
-   /*animation: fadein 2;*/
-}
+
 
 .smallerText {
   fontSize: 1px;

@@ -73,10 +73,10 @@ class SearchByBusinessName extends React.Component{
 	render() {
 		const {value, autocompleteData} = this.state;
 		return (
-			<div className="text">
+			<div className="searchBars">
 				<Col sm="6">
 				Search by Name 
-				<br></br>
+			
 
 					<Autocomplete
 						inputProps={{ className: 'form-control', placeholder: 'Business',style: { width: '500px'}}} 
