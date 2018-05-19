@@ -26,7 +26,7 @@ const Chart = ({information}) => {
 						<td rowSpan="2">{
 
 							result.violations.map((violation, idx) => {
-								return (<div key={ idx}>
+								return (<div key={ idx} className="smallerText">
 										<div>{violation.violation_code}: {violation.violation_description} </div>
 										</div>
 									)

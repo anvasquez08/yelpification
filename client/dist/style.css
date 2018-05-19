@@ -4,10 +4,6 @@ body {
   background-color: #ffffff;
 }
 
-.App {
-  /*text-align:center;*/
-}
-
 .navbar-header {
   background-color: #d9534f;
   color: #ECF0F1
@@ -24,6 +20,11 @@ body {
 .Card {
   background-color: #A292A1;
   text-align:center
+}
+
+.Results {
+  fontSize: 5px;
+
 }
 
 .searchBars {
@@ -87,7 +88,7 @@ body {
 }
 
 .smallerText {
-  fontSize: 1px;
+  font-size: 10px;
 }
 
 
