@@ -27,10 +27,15 @@ class RestaurantDetails extends React.Component {
 		this.setState({Y2018: d4})
 	}
 
+	viewChanger() {
+
+	}
+
 	render() {
 		const place = this.props.yelpResultsForId[0]
 		const name = place.name	
 		const address = place.location.display_address.join(', ')
+		const {Y2015, Y2016, Y2017, Y2018} = this.state
 
 		return (
 				<div className="container-fluid">
@@ -39,9 +44,17 @@ class RestaurantDetails extends React.Component {
 					    <h1 className="Title">{name}</h1>
 					    <h6 className="Address">{address}</h6>
 							
-							<div className="row">
+							<div className="row" style={{fontSize: '15px'}}>
 								<Information yelpResultsForId={this.props.yelpResultsForId}/>
-								<Chart information={this.state}/>
+											<div className="btn-group btn-group-sm" role="group" aria-label="Basic example" style={{float: "right", padding: '5px'}}>
+											{ Y2018 && <button type="button" className="btn btn-secondary">2018</button> }
+											{ Y2017 && <button type="button" className="btn btn-secondary">2017</button> }
+											{ Y2016 && <button type="button" className="btn btn-secondary">2016</button> }
+											{ Y2015 && <button type="button" className="btn btn-secondary">2015</button> }
+											</div>
+
+								<Chart year={this.state.Y2018}/>
+
 							</div>
 
 							<Button className="Button-details" onClick={() => this.props.savePlaceToDB(business)}>Save to Bookmarks</Button>
@@ -53,30 +66,6 @@ class RestaurantDetails extends React.Component {
 }
 
 export default RestaurantDetails;
-
-
-// 											  {
-// 											  	this.state['2015'].map((data, idx) => {
-// 											  		return (
-// 													   <tbody>
-// 													    <tr>
-// 													      <th scope="row">{data.inspection_date}</th>
-// 													      <td>{data.healthRating[0]}</td>
-// 													      <td>{data.score[0]}</td>
-
-// 													      {
-// 													      	data.violations.map((singleViolation) => {
-// 													      		return (
-// 													     					<td colSpan="2">{singleViolation.violation_description}</td>
-// 													      			)
-// 													      	})
-// 													      }
-
-// 													    </tr>
-// 													  </tbody>
-// 													  )
-// 								  				})
-// 											  }
 
 // Restaurant received an A inspection grade (i.e. a grade of 13 points or below)
 // restaurant received 14 or more violation points (the equivalent of a "B" or worse) during an initial un-graded inspection or during a follow-up inspection, in which case the restaurant would likely display a grade-pending card, instead of a "B" or "C". 
