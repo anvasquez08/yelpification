@@ -8,6 +8,7 @@ import {Router, Switch, Redirect} from 'react-router-dom'
 import Nav from './Nav.jsx';
 import Bookmarks from './component-nav/Bookmarks.jsx';
 import Login from  './component-nav/Login.jsx';
+import Signup from  './component-nav/Signup.jsx';
 
 import SearchBars from './SearchBars.jsx';
 import SearchByAddress from './component-search-bars/SearchByAddress.jsx';
@@ -16,8 +17,6 @@ import SearchByBusinessName from './component-search-bars/SearchByBusinessName.j
 import Results from './Results.jsx';
 import Profile from './Profile.jsx';
 import history from './History.jsx';
-
-
 
 class App extends React.Component {
 
@@ -58,7 +57,6 @@ class App extends React.Component {
 		console.log(body)
 		axios.post('/searchPlaces', body)
 		.then(response => {
-			// console.log(response.data)
 			this.setState({searchResults: response.data}, () => history.push({pathname: '/results'}) )
 		})
 		.catch(err => console.log(err))
@@ -110,6 +108,7 @@ class App extends React.Component {
 			<Router history={history}>
 				<div>
 					  <Nav history={history}/>
+
 					  <SearchBars handleLatLgn={this.handleLatLgn} 
 					  			  handleYelpSearch={this.handleYelpSearch}
 					  			  lat={this.state.lat} lng={this.state.lng}
@@ -119,6 +118,7 @@ class App extends React.Component {
 						<Switch>
 								<Bookmarks path="/bookmarks" component={Bookmarks} signedinUser={this.state.signedinUser}/>
 								<Login path="/login" component={Login}/>
+								<Signup path="/signup" component={Signup}/>
 								<Results path="/results" component={Results}
 									searchResults={this.state.searchResults} 
 									handleYelpRestaurantID={this.handleYelpRestaurantID}
@@ -136,36 +136,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*
-	//**   CHANGING VIEWS
-
-	handleViewStateChange(view) {
-		this.setState({view: view})
-		this.renderViewChanger()
-	}
-
-  renderViewChanger() {
-		const { view } = this.state;
-
-		if (view === 'restaurantResults') {
-			// return <RestaurantResults 
-			// 	searchResults={this.state.searchResults} 
-			// 	handleYelpRestaurantID={this.handleYelpRestaurantID}
-			// 	savePlaceToDB={this.savePlaceToDB}/> 
-
-		} else if (view === 'details') {
-			 // return <Profile
-				// handleViewStateChange={this.handleViewStateChange}
-				// yelpResultsForId={this.state.yelpResultsForId}
-				// savePlaceToDB={this.savePlaceToDB}/>
-
-		} else if (view === 'bookmarks') {
-			// return <Bookmarks signedinUser={this.state.signedinUser}/>
-		} else if (view === 'login') {
-			// return <Login signedinUser={this.state.signedinUser}/>
-		}
-	}
-
-
-*/

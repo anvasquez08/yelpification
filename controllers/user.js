@@ -24,18 +24,20 @@ const userRoutes = {
   },
   login: {
     post: (req, res) =>{
+      console.log('clicked!')
       const {username, password} = req.body;
-      User.findOne({where: {username: username}})
-      .then(project => {
-        console.log('found', project.get({plain:true})) 
+      // User.findOne({where: {username: username}})
+      // .then(project => {
+      //   console.log('found', project.get({plain:true})) 
         
-        /* TO DO: Add authentication middleware */ 
+      //   /* TO DO: Add authentication middleware */ 
              // compare hashed password ; 
               // if err res.status(401).send()
               // else create session / give token
-        res.end()
-      })
-      .catch(err =>  res.send(401).end())
+        const data = true
+        res.send(data)
+      // })
+      // .catch(err =>  res.send(401).end())
     }
   }
 }

@@ -5,6 +5,7 @@ import Bookmarks from './component-nav/Bookmarks.jsx';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import {withRouter} from 'react-router-dom';
 
+
 const Nav = (props) => {
   return (
         <Navbar color="faded" dark className="navbar-header">

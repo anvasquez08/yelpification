@@ -4,6 +4,8 @@ const preferences = require('./preferences.js');
 const yelp = require('./yelp.js');
 const google = require('./google.js')
 
+router.post('/login', user.login.post);
+
 router.get('/preferences/:username', preferences.search.get);  				  
 router.post('/preferences/:username', preferences.add.post);   				  
 router.delete('/preferences/:username/:id', preferences.delete.delete);  
