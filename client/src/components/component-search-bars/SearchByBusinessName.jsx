@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'; 
 import history from '../History.jsx';
 import Autocomplete from 'react-autocomplete'
-import {Container, Row, Col, Card, CardBody, CardTitle, Button, Input} from 'reactstrap';
+import {Button} from 'reactstrap';
 import {withRouter} from 'react-router-dom';
 
 class SearchByBusinessName extends React.Component{
@@ -63,7 +63,6 @@ class SearchByBusinessName extends React.Component{
 
   getYelpProfile() {
   	const body = {term: this.state.value}
-  	console.log('clicked!!' , body)
   	axios.post('/searchName', body)
   	.then(response => {
   		console.log('this is the response: ', response.data)

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import history from '../History.jsx';
 import {withRouter} from 'react-router-dom';
+import {Button} from 'reactstrap';
 
 import Modal from 'react-modal';
 Modal.setAppElement(document.getElementById('app'));
@@ -38,15 +39,10 @@ constructor(props) {
     const body = {username: this.state.username, password: this.state.password}
     axios.post('/login', body)
     .then(response => {
-      console.log(response.data)
-      if(response.data) {
-        history.push({pathname: '/bookmarks'})     
-      } else {
-        history.push({pathname: '/'})
-      }   
-
+        this.props.handleUsername(response.data)
+        history.push({pathname: '/bookmarks'})       
     })
-    .catch(err => console.log(err))
+    .catch(err => history.push({pathname: '/'}))
   }
 
   render() {
@@ -58,32 +54,43 @@ constructor(props) {
               // portalClassName="ReactModalPortal"
               // overlayClassName="ReactModal__Overlay"
               // className="ReactModal__Content"
+              className="modal-dialog"
               ariaHideApp={true}
               shouldFocusAfterRender={true}
               shouldReturnFocusAfterClose={true}
               onRequestClose={() => this.toggleModel()}
             >
-            <div>
-               <h2>Login</h2>   
-               <form>
-                <label>
+            <div className="modal-content">
+               <h2 className="modal-header">Login</h2>   
+               <form> 
+                <div className="form-row"style={{padding: "10px"}}>
+                  <div className="col"style={{padding: "5px"}} >
                   <input  type="text" 
                           name="username" 
                           value={this.state.username} 
                           onChange={this.handleInputChange} 
                           placeholder="username"
-                  />  
+                          className="form-control"
+                        />             
+                  </div>  
+                  <div className="col" style={{padding: "5px"}}>
                   <input  type="password"  
                           name="password"   
                           value={this.state.password} 
                           onChange={this.handleInputChange} 
                           placeholder="password"
-                  />              
-                </label>
+                          className="form-control "
+                    />   
+                    </div>
+                    </div>           
                </form>  
+               <div style={{textAlign:"center"}}> 
+                 <Button className="Button-modal" onClick={this.checkDatabase}>Login</Button>
+                <Button className="Button-modal" onClick={() => history.push({pathname: '/signup'})}>Sign up</Button>
+                <Button className="Button-modal" onClick={() => history.push({pathname: '/'})}>Close</Button>
+              </div>
             </div>
-            <button onClick={this.checkDatabase}>Login</button>
-            <button onClick={() => history.push({pathname: '/signup'})}>Not a member? Sign up</button>
+
           </Modal>
 
         </div>

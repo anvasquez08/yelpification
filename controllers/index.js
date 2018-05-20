@@ -5,6 +5,7 @@ const yelp = require('./yelp.js');
 const google = require('./google.js')
 
 router.post('/login', user.login.post);
+router.post('/signup', user.signup.post);
 
 router.get('/preferences/:username', preferences.search.get);  				  
 router.post('/preferences/:username', preferences.add.post);   				  

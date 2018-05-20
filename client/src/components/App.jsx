@@ -23,7 +23,6 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			view: 'restaurantResults',
 			fulladdress: '',
 			lat: '',
 			lng: '', 
@@ -40,26 +39,32 @@ class App extends React.Component {
 		this.handleYelpIDSearch = this.handleYelpIDSearch.bind(this);
 		this.handleYelpSearch = this.handleYelpSearch.bind(this);
 		this.savePlaceToDB = this.savePlaceToDB.bind(this);
+		this.handleUsername = this.handleUsername.bind(this);
 	}
 
 	//**   RENDERING RESTAURANT RESULTS COMPONENT
 	handleLatLgn(targetAddress, targetLat, targetLng) {
-		this.setState({fulladdress: targetAddress, lat: targetLat, lng: targetLng}, () => this.handleYelpSearch())
+		this.setState({fulladdress: targetAddress, lat: targetLat, lng: targetLng}, 
+			() => this.handleYelpSearch())
 	}
 
 	handleSearchResults(data) {
-		this.setState({searchResults: data}, () => history.push({pathname: '/results'}) )
+		this.setState({searchResults: data}, 
+			() => history.push({pathname: '/results'}))
+	}
+
+	handleUsername(data) {
+		this.setState({signedinUser: data})
 	}
 
 	handleYelpSearch() {
-		console.log('fetching yelp results...')
 		const body = {lat: this.state.lat, lng: this.state.lng}
-		console.log(body)
 		axios.post('/searchPlaces', body)
 		.then(response => {
-			this.setState({searchResults: response.data}, () => history.push({pathname: '/results'}) )
+			this.setState({searchResults: response.data}, 
+				() => history.push({pathname: '/results'}))
 		})
-		.catch(err => console.log(err))
+		.catch(err => console.log('handle yelp search error: ', err))
 	}
 
 	//**   RENDERING RESTAURANT DETAILS COMPONENT
@@ -69,11 +74,8 @@ class App extends React.Component {
 
 	handleYelpIDSearch() {
 		axios.post(`/searchId/${this.state.yelpRestaurantID}`)
-		.then(res => {
-			console.log('results for business', res.data)
-			this.handleYelpResultsForId(res.data)
-		})
-		.catch(err => console.log(err))
+		.then(res => this.handleYelpResultsForId(res.data))
+		.catch(err => console.log('handle yelp id search error: ', err))
 	}
 
 	handleYelpResultsForId(data) {
@@ -94,12 +96,9 @@ class App extends React.Component {
 		  location_city: place.location['city'], 
 		  location_zip_code: place.location['zip_code']
 		} 
-		console.log('this is the body', body)
+		console.log('data being sent: ', body)
 		axios.post(`/preferences/${this.state.signedinUser}`, body)
-		.then(response => {
-			console.log(response)
-			console.log('saved to DB')
-		})
+		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}
 
@@ -117,8 +116,12 @@ class App extends React.Component {
 
 						<Switch>
 								<Bookmarks path="/bookmarks" component={Bookmarks} signedinUser={this.state.signedinUser}/>
-								<Login path="/login" component={Login}/>
-								<Signup path="/signup" component={Signup}/>
+								<Login path="/login" component={Login}
+									signedinUser={this.state.signedinUser}
+									handleUsername={this.handleUsername}/>
+								<Signup path="/signup" component={Signup}
+									signedinUser={this.state.signedinUser}
+									handleUsername={this.handleUsername}/>
 								<Results path="/results" component={Results}
 									searchResults={this.state.searchResults} 
 									handleYelpRestaurantID={this.handleYelpRestaurantID}

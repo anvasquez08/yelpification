@@ -1,10 +1,7 @@
 import React from 'react';
 import history from './History.jsx';
-import Login from  './component-nav/Login.jsx';
-import Bookmarks from './component-nav/Bookmarks.jsx';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import {withRouter} from 'react-router-dom';
-
 
 const Nav = (props) => {
   return (
