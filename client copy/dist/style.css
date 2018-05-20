@@ -1,0 +1,94 @@
+
+body {
+  margin: 0px;
+  background-color: #ffffff;
+}
+
+.navbar-header {
+  background-color: #d9534f;
+  color: #ECF0F1
+}
+
+.Title {
+  color: #d9534f;
+}
+
+.Address {
+  padding-bottom: 35px;
+}
+
+.Card {
+  background-color: #A292A1;
+  text-align:center
+}
+
+.Results {
+  fontSize: 5px;
+
+}
+
+.searchBars {
+  height: auto;
+  padding-top: 25px;
+  padding-bottom: 55px;
+  position: relative;
+}
+
+.Button {
+  width: 20%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background-color: #F7F5F3;
+}
+
+.Button-details {
+  width: 25%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color: #d9534f;
+  color: #ECF0F1;
+  float: right;
+}
+
+.profile {
+  margin-right: 25px;
+}
+
+/*"marginTop": "5px", "marginBottom": "5px","marginRight": "5px","marginLeft": "5px"*/
+
+.Button-cards {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background-color: #F7F5F3;
+
+}
+
+
+.img-responsive {
+    display: block;
+    min-height: 150px;
+    max-height: 50px;
+    max-width: 300px;
+}
+
+
+/*saving for reference */
+.img-cover {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  background-size: cover;
+  position: relative;
+  animation: fadein 2
+}
+
+.smallerText {
+  font-size: 10px;
+}
+
+

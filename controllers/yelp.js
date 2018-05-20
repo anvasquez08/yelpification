@@ -33,12 +33,13 @@ const yelpRoutes= {
       const {term} = req.body;
       const name = term.split(',')[0]
       const address = term.split(',').slice(1).join(',').trim()
+
       fetchBusinessesByName(name, address)
       .then(response => Promise.all(response.map(getHeathRating)))
       .then(response => {
           response = response.filter(obj => obj !== undefined)
           res.send(response)
-      })
+        })
       .catch(err => console.log(err))
     }
   }

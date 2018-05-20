@@ -25,7 +25,9 @@ const googleRoutes= {
 	      components: {country: 'us'}
 	    })
 	  	.asPromise()
-	  	.then(response => res.send(response.json.predictions)) 
+	  	.then(response => {
+        res.send(response.json.predictions)
+      }) 
 	  	.catch(err => res.send(err))
 	  }
   }
